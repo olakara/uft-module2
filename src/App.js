@@ -7,6 +7,7 @@ export default function App() {
     <div className="App">
       <h1>List Of Books</h1>
       <BooksLister />
+      <AddBook />
     </div>
   );
 }

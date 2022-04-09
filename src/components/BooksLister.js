@@ -11,13 +11,13 @@ export default function BooksLister() {
     });
   }
 
-  async function handleAddBook() {
-    const bookDto = {
-      name: "Learn new skills",
-      author: "Robert Wilson"
-    };
-    await booksPresenter.addBook(bookDto);
-  }
+  // async function handleAddBook() {
+  //   const bookDto = {
+  //     name: "Learn new skills",
+  //     author: "Robert Wilson"
+  //   };
+  //   await booksPresenter.addBook(bookDto);
+  // }
 
   async function handleResetBooks() {
     await booksPresenter.resetBooks();
@@ -34,7 +34,6 @@ export default function BooksLister() {
           return <li key={bookVm.id}>{bookVm.name}</li>;
         })}
       </ul>
-      <button onClick={handleAddBook}>Add New Book</button>
       <button onClick={handleResetBooks}>Reset Books</button>
     </div>
   );
