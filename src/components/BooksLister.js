@@ -5,27 +5,14 @@ export default function BooksLister() {
   const [vm, setViewModel] = useState([]);
   const booksPresenter = new BooksPresenter();
 
-  async function load() {
-    await booksPresenter.load((booksVm) => {
-      setViewModel(booksVm);
-    });
-  }
-
-  // async function handleAddBook() {
-  //   const bookDto = {
-  //     name: "Learn new skills",
-  //     author: "Robert Wilson"
-  //   };
-  //   await booksPresenter.addBook(bookDto);
-  // }
-
-  async function handleResetBooks() {
-    await booksPresenter.resetBooks();
-  }
-
   React.useEffect(() => {
+    async function load() {
+      await booksPresenter.load((booksVm) => {
+        setViewModel(booksVm);
+      });
+    }
     load();
-  });
+  }, []);
 
   return (
     <div>
@@ -34,7 +21,6 @@ export default function BooksLister() {
           return <li key={bookVm.id}>{bookVm.name}</li>;
         })}
       </ul>
-      <button onClick={handleResetBooks}>Reset Books</button>
     </div>
   );
 }
